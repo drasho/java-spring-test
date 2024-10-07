@@ -15,4 +15,7 @@ public class Campaign {
 
     @OneToMany(mappedBy = "campaign", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Question> questions;
+
+    @OneToMany(mappedBy = "campaign", orphanRemoval = true, cascade = CascadeType.ALL)
+    private List<Feedback> feedbacks;
 }

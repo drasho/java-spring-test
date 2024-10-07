@@ -12,10 +12,13 @@ public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
     @ManyToOne(optional = false)
     private Feedback feedback;
+
     @ManyToOne(optional = false)
     private Question question;
+
     private int ratingValue;
 
     @ManyToMany
