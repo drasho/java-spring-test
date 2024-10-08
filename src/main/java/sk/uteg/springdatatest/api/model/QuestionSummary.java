@@ -8,7 +8,7 @@ import java.math.MathContext;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
@@ -59,15 +59,15 @@ public class QuestionSummary {
     public List<OptionSummary> getQuestionOptionSummaries(Question question, List<Answer> answers) {
         if(question.getType().equals(QuestionType.CHOICE)) {
             // group options by occurrences
-            Map<Option, Long> optionOccurrences = answers.stream()
+            Map<UUID, Long> optionOccurrences = answers.stream()
                     .flatMap(answer -> answer.getSelectedOptions().stream())
                     .collect(
-                            Collectors.groupingBy(Function.identity(), Collectors.counting())
+                            Collectors.groupingBy(Option::getId, Collectors.counting())
                     );
 
             return question.getOptions()
                     .stream()
-                    .map(option -> new OptionSummary(option.getText(), Math.toIntExact(optionOccurrences.getOrDefault(option, 0L))))
+                    .map(option -> new OptionSummary(option.getText(), Math.toIntExact(optionOccurrences.getOrDefault(option.getId(), 0L))))
                     .collect(toList());
         }
 
