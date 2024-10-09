@@ -1,5 +1,6 @@
 insert into "campaign" ("id") values ('a9cf9e86-e7a5-4934-bbed-8aa03a086aed');
 insert into "campaign" ("id") values ('a0cf9e86-e7a5-4934-bbed-8aa03a086aed');
+insert into "campaign" ("id") values ('a1cf9e86-e7a5-4934-bbed-8aa03a086aed');
 
 insert into "question" ("id","campaign_id","type", "text") values ('a9cf9e86-e7a5-4934-bbed-8aa03a086ae1', 'a9cf9e86-e7a5-4934-bbed-8aa03a086aed', 'RATING', 'Rating question');
 insert into "question" ("id","campaign_id","type", "text") values ('a9cf9e86-e7a5-4934-bbed-8aa03a086ae2', 'a9cf9e86-e7a5-4934-bbed-8aa03a086aed', 'CHOICE', 'Choice question');
